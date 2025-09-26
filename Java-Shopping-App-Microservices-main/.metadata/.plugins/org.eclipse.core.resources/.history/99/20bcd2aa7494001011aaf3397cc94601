@@ -1,0 +1,2 @@
+spring.application.name=MS2
+server.port=1112

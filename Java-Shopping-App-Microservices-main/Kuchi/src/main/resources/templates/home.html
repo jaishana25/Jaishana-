@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSmart - Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e3ffe6 0%, #edf6ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(30, 60, 120, 0.08);
+            padding: 48px 36px 40px 36px;
+            text-align: center;
+            min-width: 340px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a374d;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.15rem;
+            color: #4c6483;
+            margin-bottom: 2.5rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .brand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #e8e8e8, #f5fafd);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #34495e;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(168, 218, 220, 0.10);
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+        .brand-btn:hover {
+            background: linear-gradient(90deg, #def3ec 60%, #eef4fb 100%);
+            box-shadow: 0 6px 18px rgba(168,218,220,0.14);
+            transform: translateY(-4px) scale(1.04);
+        }
+        .logo {
+            width: 32px;
+            height: 32px;
+            margin-right: 0.4rem;
+        }
+        .apple-btn {
+            border: 2px solid #73777b;
+        }
+        .samsung-btn {
+            border: 2px solid #3896f7;
+        }
+        @media (max-width: 600px) {
+            .button-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .container {
+                min-width: 220px;
+                padding: 32px 12px 24px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Kuchi</h1>
+        <p class="subtitle">Choose your favorite brand</p>
+        <div class="button-group">
+            <a href="/apple" class="brand-btn apple-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="logo">
+                Apple
+            </a>
+            <a href="/samsung" class="brand-btn samsung-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="logo">
+                Samsung
+            </a>
+        </div>
+    </div>
+</body>
+</html>

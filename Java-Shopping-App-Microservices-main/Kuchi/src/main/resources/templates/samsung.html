@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Samsung Devices</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #f9fcff 0%, #ecf6fa 100%);
+      margin: 0;
+      min-height: 100vh;
+    }
+    .home-icon {
+      position: absolute;
+      top: 26px; left: 28px;
+      transition: transform 0.13s;
+      z-index: 20;
+    }
+    .home-icon:hover svg { stroke: #2560a0; transform: scale(1.12);}
+    .main-header {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .brand-label {
+      display: inline-block;
+      padding: 0.3em 1.1em;
+      background: #e8f0fc;
+      color: #2075d1;
+      border-radius: 17px;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.3em;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #103468;
+      margin-top: 0.6em;
+      margin-bottom: 2em;
+      letter-spacing: 0.6px;
+    }
+    .device-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.7rem;
+      justify-content: center;
+      margin-bottom: 5vh;
+    }
+    .device-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 16px 3px rgba(100,146,205,0.09);
+      padding: 2.2em 1.5em 1.6em 1.5em;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      min-height: 128px;
+      transition: box-shadow 0.2s, transform 0.18s;
+    }
+    .device-card:hover {
+      box-shadow: 0 6px 28px 0 rgba(60,130,215,0.17);
+      transform: translateY(-5px) scale(1.033);
+    }
+    .device-id {
+      color: #b0b5bc;
+      font-size: 0.94rem;
+      margin-bottom: 10px;
+    }
+    .device-title {
+      font-size: 1.27rem;
+      font-weight: 600;
+      color: #2362ad;
+      margin-bottom: 7px;
+      text-align: center;
+      letter-spacing: 0.1px;
+    }
+    .device-type {
+      opacity: 0;
+      transition: opacity 0.21s;
+      color: #197446;
+      font-size: 1rem;
+      margin-top: 8px;
+      min-height: 1.2em;
+      text-align: center;
+      visibility: hidden;
+    }
+    .device-card:hover .device-type {
+      opacity: 1;
+      visibility: visible;
+    }
+    @media (max-width: 700px) {
+        body { padding: 8px;}
+        .main-header { margin-top: 1.5em; }
+        .device-list { gap: 0.7em;}
+        .device-card { width: 96vw; max-width: 330px; min-width: 164px;}
+        .home-icon { top: 13px; left: 11px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Icon Navigation -->
+  <a href="/home" class="home-icon" title="Home" aria-label="Home">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+         stroke="#2283e7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12L12 3l9 9"></path>
+      <path d="M9 21V9h6v12"></path>
+      <path d="M21 21H3"></path>
+    </svg>
+  </a>
+
+  <div class="main-header">
+    <span class="brand-label" th:text="${Samsung.brandName}">Samsung</span>
+    <h1>Samsung Devices</h1>
+  </div>
+
+  <div class="device-list">
+    <div class="device-card" th:each="device : ${Samsung.devices}">
+      <div class="device-id">#<span th:text="${device.id}">1</span></div>
+      <div class="device-title" th:text="${device.name}">Device Name</div>
+      <div class="device-type" th:text="${device.type}">Device Type</div>
+    </div>
+  </div>
+</body>
+</html>

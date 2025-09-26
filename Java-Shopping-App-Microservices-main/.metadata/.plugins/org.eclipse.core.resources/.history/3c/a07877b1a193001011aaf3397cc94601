@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Apple Devices - ' + ${Apple.brandName}">Apple Devices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: linear-gradient(110deg, #f3f8fd 0%, #eafaf1 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+            background: rgba(255,255,255,.7);
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+            margin: 0;
+            color: #191919;
+        }
+        .brand-label {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.35em 1em;
+            border-radius: 24px;
+            background: linear-gradient(100deg, #eeeeee 60%, #e3e3e3 100%);
+            color: #111;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .device-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+        .device-card {
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(120,172,234,0.10);
+            padding: 2rem 1.5rem 1rem 1.5rem;
+            width: 310px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .device-card:hover {
+            box-shadow: 0 8px 32px rgba(120,172,234,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .device-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2560a0;
+            margin: 1rem 0 0.5rem 0;
+        }
+        .device-type {
+            color: #666;
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 1.0rem;
+        }
+        .device-id {
+            font-size: 0.92rem;
+            color: #b0b5bc;
+        }
+        @media (max-width: 800px) {
+            .device-list {
+                gap: 1.2rem;
+            }
+            .device-card {
+                width: 96vw;
+                max-width: 370px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="brand-label" th:text="${Apple.brandName}">Apple</span>
+        <h1>Apple Devices</h1>
+    </div>
+    <div class="device-list">
+        <div class="device-card" th:each="device : ${Apple.devices}">
+            <div class="device-id">#<span th:text="${device.id}">1</span></div>
+            <div class="device-title" th:text="${device.name}">Device Name</div>
+            <div class="device-type" th:text="${device.type}">Device Type</div>
+        </div>
+    </div>
+</body>
+</html>

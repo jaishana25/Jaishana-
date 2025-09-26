@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${Apple.brand}">Apple Devices</title>
+    <!-- CSS here (same as above, omitted for brevity) -->
+</head>
+<body>
+    <div class="header">
+        <span class="brand-label" th:text="${Apple.brand}">Apple</span>
+        <h1>Apple Devices</h1>
+    </div>
+    <div class="device-list">
+        <div class="device-card" th:each="device : ${Apple.devices}">
+            <div class="device-id">#<span th:text="${device.id}">1</span></div>
+            <div class="device-title" th:text="${device.name}">Device Name</div>
+            <div class="device-desc" th:text="${device.description}">Device Description</div>
+        </div>
+    </div>
+</body>
+</html>

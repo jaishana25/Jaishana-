@@ -1,0 +1,2 @@
+spring.application.name=Samsung
+server.port=999

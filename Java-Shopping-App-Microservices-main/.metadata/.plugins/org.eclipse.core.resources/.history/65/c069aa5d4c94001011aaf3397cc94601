@@ -1,0 +1,40 @@
+package com.example.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.model.Device;
+import com.example.model.Devices;
+
+@Controller
+public class MainController {
+	
+	RestTemplate rs;
+	
+	@RequestMapping("/home")
+	public String home() {
+		return "home.html";
+	}
+	
+	@RequestMapping("/apple")
+	public ModelAndView apple() {
+		ModelAndView mv = new ModelAndView();
+		rs = new RestTemplate();
+		Devices deviceList = rs.getForObject("http://localhost:888/apple", Devices.class);
+		mv.addObject("Apple", deviceList);
+		return mv;
+	}
+	
+	@RequestMapping("/samsung")
+	public ModelAndView samsung() {
+		ModelAndView mv = new ModelAndView();
+		Devices deviceList = rs.getForObject("http://localhost:999/samsung", Devices.class);
+		mv.addObject("Samsung", deviceList);
+		return mv;
+		
+	}
+}
